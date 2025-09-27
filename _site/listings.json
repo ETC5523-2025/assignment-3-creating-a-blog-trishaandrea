@@ -1,0 +1,21 @@
+[
+  {
+    "listing": "/index.html",
+    "items": [
+      "/about.html",
+      "/home.html"
+    ]
+  },
+  {
+    "listing": "/posts/welcome/index.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/welcome/welcome.html",
+    "items": []
+  },
+  {
+    "listing": "/posts/index.html",
+    "items": []
+  }
+]

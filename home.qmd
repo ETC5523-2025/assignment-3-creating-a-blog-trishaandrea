@@ -1,0 +1,14 @@
+---
+title: "Welcome"
+page-layout: full
+---
+![](home.jpg)
+
+This site is part of my **ETC5523 Assignment 3**.  
+
+# Here you can find:  
+
+- An [About page](about.qmd) with my profile and links  
+- A [Blog](posts/index.qmd) that summarises my Assignment 2 project on nitrate monitoring in rivers 
+
+

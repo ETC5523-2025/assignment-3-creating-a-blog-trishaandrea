@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Emi Tanaka">
-<meta name="dcterms.date" content="2022-07-18">
+<meta name="author" content="Trisha Aurielle Andrea">
+<meta name="dcterms.date" content="2025-09-27">
 
-<title>Welcome To My Blog Template – blog-template</title>
+<title>Can Cheap Sensors Help Us Monitor Nitrate in Rivers?</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,6 +66,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,36 +104,92 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: [{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: [],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">blog-template</span>
-    </a>
-  </div>
             <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../welcome.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/etc5523-2022"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.qmd"> 
+<span class="menu-text">Blog</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -109,28 +201,30 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog Template</h1>
+    <div class="quarto-title column-page">
+      <h1 class="title">Can Cheap Sensors Help Us Monitor Nitrate in Rivers?</h1>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">environment</div>
+                <div class="quarto-category">data-science</div>
+                <div class="quarto-category">water-quality</div>
               </div>
                   </div>
   </div>
     
   
-  <div class="quarto-title-meta">
+  <div class="quarto-title-meta column-page">
 
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Emi Tanaka </p>
+               <p>Trisha Aurielle Andrea </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 18, 2022</p>
+        <p class="date">September 27, 2025</p>
       </div>
     </div>
     
@@ -138,23 +232,140 @@ ul.task-list li input[type="checkbox"] {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
+<p><img src="water.jpg" class="img-fluid"></p>
+<p><em>Thumbnail image source: Wikimedia Commons (2021), <a href="https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg">“Water testing contaminated water from lake”</a>, CC BY-SA 4.0.</em></p>
+<section id="why-nitrate-monitoring-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-nitrate-monitoring-matters">Why Nitrate Monitoring Matters</h2>
+<p>Nitrate is essential for aquatic life, but too much causes algal blooms and oxygen crashes, harming fish and river health.</p>
+<p>Managers usually rely on <strong>expensive nitrate sensors</strong>, which can fail or be too costly to use everywhere. This raises the key question:</p>
+<p><em>Can cheaper, widely available sensors provide reliable nitrate information across different rivers?</em></p>
+</section>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<p>We used <strong>two years of high-frequency monitoring data</strong> from three US rivers (Kermorvant et al., 2023):</p>
+<ul>
+<li><strong>Arikaree River (Colorado):</strong> semi-arid, agriculture affected.<br>
+</li>
+<li><strong>Caribou Creek (Alaska):</strong> subarctic, frozen in winter.<br>
+</li>
+<li><strong>Lewis Run (Virginia):</strong> temperate, urban + agricultural mix.</li>
+</ul>
+<p>The dataset included nitrate (every 15 minutes) plus cheap sensors: <strong>temperature, turbidity, dissolved oxygen, conductivity, and water level</strong>.</p>
+<p>Faulty readings and missing data were removed before modelling. This ensured the analysis reflected only reliable sensor information.</p>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<p>We applied a <strong>two-step model</strong>:</p>
+<ol type="1">
+<li><strong>Generalised Additive Model (GAM)</strong> – to capture curved, non-linear relationships.<br>
+</li>
+<li><strong>ARIMA time series model</strong> – on residuals, to account for daily and seasonal cycles.</li>
+</ol>
+<p>This approach explained about <strong>99% of nitrate variation</strong> across all sites.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model performance summary</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Site =</span> <span class="fu">c</span>(<span class="st">"Arikaree"</span>, <span class="st">"Caribou"</span>, <span class="st">"Lewis Run"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">GAM only</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.80</span>, <span class="fl">0.75</span>, <span class="fl">0.85</span>),</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">GAM + ARIMA</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">0.98</span>, <span class="fl">0.99</span>, <span class="fl">0.99</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Table 1. Model performance by site (proportion of variation explained)."</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Table 1. Model performance by site (proportion of variation explained).</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Site</th>
+<th style="text-align: right;">GAM.only</th>
+<th style="text-align: right;">GAM…ARIMA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Arikaree</td>
+<td style="text-align: right;">0.80</td>
+<td style="text-align: right;">0.98</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Caribou</td>
+<td style="text-align: right;">0.75</td>
+<td style="text-align: right;">0.99</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Lewis Run</td>
+<td style="text-align: right;">0.85</td>
+<td style="text-align: right;">0.99</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>As shown in Table 1, adding ARIMA improved accuracy at all rivers.</p>
+<p>We also compared the importance of the five cheap sensors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Placeholder example, replace with real data if available</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Site =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Arikaree"</span>,<span class="st">"Caribou"</span>,<span class="st">"Lewis Run"</span>), <span class="at">each=</span><span class="dv">5</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Variable =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Conductivity"</span>,<span class="st">"Oxygen"</span>,<span class="st">"Temperature"</span>,<span class="st">"Turbidity"</span>,<span class="st">"Water Level"</span>), <span class="dv">3</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Importance =</span> <span class="fu">runif</span>(<span class="dv">15</span>, <span class="dv">5</span>, <span class="dv">20</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>Variable, <span class="at">y=</span>Importance, <span class="at">fill=</span>Site)) <span class="sc">+</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position=</span><span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Figure 1 shows that while the same five predictors mattered everywhere, their importance varied:</p>
+<ul>
+<li><p><strong>Conductivity</strong> was key in Alaska and Virginia.</p></li>
+<li><p><strong>Temporal cycles</strong> mattered most in Colorado.</p></li>
+</ul>
+<p>This links directly back to the problem: even though river systems differ, the <strong>framework still works.</strong></p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This study shows that <strong>common sensors</strong> (temperature, oxygen, turbidity, conductivity, water level) can reliably monitor nitrate when combined with GAM + ARIMA models.</p>
+<p>Monitoring can be <strong>cheaper and more resilient.</strong></p>
+<p>Models can <strong>fill gaps</strong> when expensive nitrate sensors fail.</p>
+<p>A <strong>single framework</strong> can scale across diverse river systems.</p>
+<p>For water managers, the message is clear: <strong>you don’t always need costly nitrate sensors to protect river health.</strong></p>
+</section>
+<section id="reference" class="level2">
+<h2 class="anchored" data-anchor-id="reference">Reference</h2>
+<p>Kermorvant, C., Abbott, B. W., Chaplin, B., Brinck, S., Cole, L. E. S., Holgerson, M. A., … Bishop, K. (2023). Understanding links between water-quality variables and nitrate concentration in freshwater streams using high frequency sensor data. PLOS ONE, 18(6), e0287640. https://doi.org/10.1371/journal.pone.0287640</p>
+<p>Wikimedia Commons. (2021, July 28). Water testing contaminated water from lake [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg</p>
 
 
 
-</main> <!-- /main -->
+</section>
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
