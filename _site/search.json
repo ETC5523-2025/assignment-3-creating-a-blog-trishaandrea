@@ -7,153 +7,6 @@
     "text": "I’m currently pursuing my Master of Business Analytics at Monash University in Melbourne. My academic journey began with a Bachelor’s degree in Management at Prasetiya Mulya University, where I developed a strong foundation in business and management.\nProfessionally, I have gained experience in customer service, hospitality, and branding consulting, which allowed me to apply my management background in practical settings. Alongside this, I run a small online business, where I continue to develop my skills in entrepreneurship and digital marketing.\nBeyond my studies, I am passionate about exploring new places, cultures, and perspectives through travel. I also enjoy baking, discovering coffee spots, and sharing insights about education, lifestyle, and living abroad."
   },
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "",
-    "text": "Thumbnail image source: Wikimedia Commons (2021), “Water testing contaminated water from lake”, CC BY-SA 4.0."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "",
-    "text": "Thumbnail image source: Wikimedia Commons (2021), “Water testing contaminated water from lake”, CC BY-SA 4.0."
-  },
-  {
-    "objectID": "posts/welcome/index.html#why-nitrate-monitoring-matters",
-    "href": "posts/welcome/index.html#why-nitrate-monitoring-matters",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Why Nitrate Monitoring Matters",
-    "text": "Why Nitrate Monitoring Matters\nNitrate is essential for aquatic life, but too much causes algal blooms and oxygen crashes, harming fish and river health.\nManagers usually rely on expensive nitrate sensors, which can fail or be too costly to use everywhere. This raises the key question:\nCan cheaper, widely available sensors provide reliable nitrate information across different rivers?"
-  },
-  {
-    "objectID": "posts/welcome/index.html#the-data",
-    "href": "posts/welcome/index.html#the-data",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "The Data",
-    "text": "The Data\nWe used two years of high-frequency monitoring data from three US rivers (Kermorvant et al., 2023):\n\nArikaree River (Colorado): semi-arid, agriculture affected.\n\nCaribou Creek (Alaska): subarctic, frozen in winter.\n\nLewis Run (Virginia): temperate, urban + agricultural mix.\n\nThe dataset included nitrate (every 15 minutes) plus cheap sensors: temperature, turbidity, dissolved oxygen, conductivity, and water level.\nFaulty readings and missing data were removed before modelling. This ensured the analysis reflected only reliable sensor information."
-  },
-  {
-    "objectID": "posts/welcome/index.html#analysis",
-    "href": "posts/welcome/index.html#analysis",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Analysis",
-    "text": "Analysis\nWe applied a two-step model:\n\nGeneralised Additive Model (GAM) – to capture curved, non-linear relationships.\n\nARIMA time series model – on residuals, to account for daily and seasonal cycles.\n\nThis approach explained about 99% of nitrate variation across all sites.\n\n# Model performance summary\nknitr::kable(\n  data.frame(\n    Site = c(\"Arikaree\", \"Caribou\", \"Lewis Run\"),\n    `GAM only` = c(0.80, 0.75, 0.85),\n    `GAM + ARIMA` = c(0.98, 0.99, 0.99)\n  ),\n  caption = \"Table 1. Model performance by site (proportion of variation explained).\"\n)\n\n\nTable 1. Model performance by site (proportion of variation explained).\n\n\nSite\nGAM.only\nGAM…ARIMA\n\n\n\n\nArikaree\n0.80\n0.98\n\n\nCaribou\n0.75\n0.99\n\n\nLewis Run\n0.85\n0.99\n\n\n\n\n\nAs shown in Table 1, adding ARIMA improved accuracy at all rivers.\nWe also compared the importance of the five cheap sensors.\n\n# Placeholder example, replace with real data if available\nlibrary(ggplot2)\ndf &lt;- data.frame(\n  Site = rep(c(\"Arikaree\",\"Caribou\",\"Lewis Run\"), each=5),\n  Variable = rep(c(\"Conductivity\",\"Oxygen\",\"Temperature\",\"Turbidity\",\"Water Level\"), 3),\n  Importance = runif(15, 5, 20)\n)\nggplot(df, aes(x=Variable, y=Importance, fill=Site)) +\n  geom_col(position=\"dodge\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 1 shows that while the same five predictors mattered everywhere, their importance varied:\n\nConductivity was key in Alaska and Virginia.\nTemporal cycles mattered most in Colorado.\n\nThis links directly back to the problem: even though river systems differ, the framework still works."
-  },
-  {
-    "objectID": "posts/welcome/index.html#conclusion",
-    "href": "posts/welcome/index.html#conclusion",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Conclusion",
-    "text": "Conclusion\nThis study shows that common sensors (temperature, oxygen, turbidity, conductivity, water level) can reliably monitor nitrate when combined with GAM + ARIMA models.\nMonitoring can be cheaper and more resilient.\nModels can fill gaps when expensive nitrate sensors fail.\nA single framework can scale across diverse river systems.\nFor water managers, the message is clear: you don’t always need costly nitrate sensors to protect river health."
-  },
-  {
-    "objectID": "posts/welcome/index.html#reference",
-    "href": "posts/welcome/index.html#reference",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Reference",
-    "text": "Reference\nKermorvant, C., Abbott, B. W., Chaplin, B., Brinck, S., Cole, L. E. S., Holgerson, M. A., … Bishop, K. (2023). Understanding links between water-quality variables and nitrate concentration in freshwater streams using high frequency sensor data. PLOS ONE, 18(6), e0287640. https://doi.org/10.1371/journal.pone.0287640\nWikimedia Commons. (2021, July 28). Water testing contaminated water from lake [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg"
-  },
-  {
-    "objectID": "index.html#why-nitrate-monitoring-matters",
-    "href": "index.html#why-nitrate-monitoring-matters",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Why Nitrate Monitoring Matters",
-    "text": "Why Nitrate Monitoring Matters\nNitrate is essential for aquatic life, but too much causes algal blooms and oxygen crashes, harming fish and river health.\nManagers usually rely on expensive nitrate sensors, which can fail or be too costly to use everywhere. This raises the key question:\nCan cheaper, widely available sensors provide reliable nitrate information across different rivers?"
-  },
-  {
-    "objectID": "index.html#the-data",
-    "href": "index.html#the-data",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "The Data",
-    "text": "The Data\nWe used two years of high-frequency monitoring data from three US rivers (Kermorvant et al., 2023):\n\nArikaree River (Colorado): semi-arid, agriculture affected.\n\nCaribou Creek (Alaska): subarctic, frozen in winter.\n\nLewis Run (Virginia): temperate, urban + agricultural mix.\n\nThe dataset included nitrate (every 15 minutes) plus cheap sensors: temperature, turbidity, dissolved oxygen, conductivity, and water level.\nFaulty readings and missing data were removed before modelling. This ensured the analysis reflected only reliable sensor information."
-  },
-  {
-    "objectID": "index.html#analysis",
-    "href": "index.html#analysis",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Analysis",
-    "text": "Analysis\nWe applied a two-step model:\n\nGeneralised Additive Model (GAM) – to capture curved, non-linear relationships.\n\nARIMA time series model – on residuals, to account for daily and seasonal cycles.\n\nThis approach explained about 99% of nitrate variation across all sites.\n\n# Model performance summary\nknitr::kable(\n  data.frame(\n    Site = c(\"Arikaree\", \"Caribou\", \"Lewis Run\"),\n    `GAM only` = c(0.80, 0.75, 0.85),\n    `GAM + ARIMA` = c(0.98, 0.99, 0.99)\n  ),\n  caption = \"Table 1. Model performance by site (proportion of variation explained).\"\n)\n\n\nTable 1. Model performance by site (proportion of variation explained).\n\n\nSite\nGAM.only\nGAM…ARIMA\n\n\n\n\nArikaree\n0.80\n0.98\n\n\nCaribou\n0.75\n0.99\n\n\nLewis Run\n0.85\n0.99\n\n\n\n\n\nAs shown in Table 1, adding ARIMA improved accuracy at all rivers.\nWe also compared the importance of the five cheap sensors.\n\n# Placeholder example, replace with real data if available\nlibrary(ggplot2)\ndf &lt;- data.frame(\n  Site = rep(c(\"Arikaree\",\"Caribou\",\"Lewis Run\"), each=5),\n  Variable = rep(c(\"Conductivity\",\"Oxygen\",\"Temperature\",\"Turbidity\",\"Water Level\"), 3),\n  Importance = runif(15, 5, 20)\n)\nggplot(df, aes(x=Variable, y=Importance, fill=Site)) +\n  geom_col(position=\"dodge\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 1 shows that while the same five predictors mattered everywhere, their importance varied:\n\nConductivity was key in Alaska and Virginia.\nTemporal cycles mattered most in Colorado.\n\nThis links directly back to the problem: even though river systems differ, the framework still works."
-  },
-  {
-    "objectID": "index.html#conclusion",
-    "href": "index.html#conclusion",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Conclusion",
-    "text": "Conclusion\nThis study shows that common sensors (temperature, oxygen, turbidity, conductivity, water level) can reliably monitor nitrate when combined with GAM + ARIMA models.\nMonitoring can be cheaper and more resilient.\nModels can fill gaps when expensive nitrate sensors fail.\nA single framework can scale across diverse river systems.\nFor water managers, the message is clear: you don’t always need costly nitrate sensors to protect river health."
-  },
-  {
-    "objectID": "index.html#reference",
-    "href": "index.html#reference",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Reference",
-    "text": "Reference\nKermorvant, C., Abbott, B. W., Chaplin, B., Brinck, S., Cole, L. E. S., Holgerson, M. A., … Bishop, K. (2023). Understanding links between water-quality variables and nitrate concentration in freshwater streams using high frequency sensor data. PLOS ONE, 18(6), e0287640. https://doi.org/10.1371/journal.pone.0287640\nWikimedia Commons. (2021, July 28). Water testing contaminated water from lake [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg"
-  },
-  {
-    "objectID": "posts/welcome/index.html#latest-posts",
-    "href": "posts/welcome/index.html#latest-posts",
-    "title": "Welcome",
-    "section": "",
-    "text": "{{&lt; listing    contents=\"posts\"    sort=\"date desc\"    type=\"default\"    categories=true    sort-ui=false    filter-ui=false &gt;}}"
-  },
-  {
-    "objectID": "posts/welcome/welcome.html",
-    "href": "posts/welcome/welcome.html",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "",
-    "text": "Thumbnail image source: Wikimedia Commons (2021), “Water testing contaminated water from lake”, CC BY-SA 4.0."
-  },
-  {
-    "objectID": "posts/welcome/welcome.html#why-nitrate-monitoring-matters",
-    "href": "posts/welcome/welcome.html#why-nitrate-monitoring-matters",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Why Nitrate Monitoring Matters",
-    "text": "Why Nitrate Monitoring Matters\nNitrate is essential for aquatic life, but too much causes algal blooms and oxygen crashes, harming fish and river health.\nManagers usually rely on expensive nitrate sensors, which can fail or be too costly to use everywhere. This raises the key question:\nCan cheaper, widely available sensors provide reliable nitrate information across different rivers?"
-  },
-  {
-    "objectID": "posts/welcome/welcome.html#the-data",
-    "href": "posts/welcome/welcome.html#the-data",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "The Data",
-    "text": "The Data\nWe used two years of high-frequency monitoring data from three US rivers (Kermorvant et al., 2023):\n\nArikaree River (Colorado): semi-arid, agriculture affected.\n\nCaribou Creek (Alaska): subarctic, frozen in winter.\n\nLewis Run (Virginia): temperate, urban + agricultural mix.\n\nThe dataset included nitrate (every 15 minutes) plus cheap sensors: temperature, turbidity, dissolved oxygen, conductivity, and water level.\nFaulty readings and missing data were removed before modelling. This ensured the analysis reflected only reliable sensor information."
-  },
-  {
-    "objectID": "posts/welcome/welcome.html#analysis",
-    "href": "posts/welcome/welcome.html#analysis",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Analysis",
-    "text": "Analysis\nWe applied a two-step model:\n\nGeneralised Additive Model (GAM) – to capture curved, non-linear relationships.\n\nARIMA time series model – on residuals, to account for daily and seasonal cycles.\n\nThis approach explained about 99% of nitrate variation across all sites.\n\n# Model performance summary\nknitr::kable(\n  data.frame(\n    Site = c(\"Arikaree\", \"Caribou\", \"Lewis Run\"),\n    `GAM only` = c(0.80, 0.75, 0.85),\n    `GAM + ARIMA` = c(0.98, 0.99, 0.99)\n  ),\n  caption = \"Table 1. Model performance by site (proportion of variation explained).\"\n)\n\n\nTable 1. Model performance by site (proportion of variation explained).\n\n\nSite\nGAM.only\nGAM…ARIMA\n\n\n\n\nArikaree\n0.80\n0.98\n\n\nCaribou\n0.75\n0.99\n\n\nLewis Run\n0.85\n0.99\n\n\n\n\n\nAs shown in Table 1, adding ARIMA improved accuracy at all rivers.\nWe also compared the importance of the five cheap sensors.\n\n# Placeholder example, replace with real data if available\nlibrary(ggplot2)\ndf &lt;- data.frame(\n  Site = rep(c(\"Arikaree\",\"Caribou\",\"Lewis Run\"), each=5),\n  Variable = rep(c(\"Conductivity\",\"Oxygen\",\"Temperature\",\"Turbidity\",\"Water Level\"), 3),\n  Importance = runif(15, 5, 20)\n)\nggplot(df, aes(x=Variable, y=Importance, fill=Site)) +\n  geom_col(position=\"dodge\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 1 shows that while the same five predictors mattered everywhere, their importance varied:\n\nConductivity was key in Alaska and Virginia.\nTemporal cycles mattered most in Colorado.\n\nThis links directly back to the problem: even though river systems differ, the framework still works."
-  },
-  {
-    "objectID": "posts/welcome/welcome.html#conclusion",
-    "href": "posts/welcome/welcome.html#conclusion",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Conclusion",
-    "text": "Conclusion\nThis study shows that common sensors (temperature, oxygen, turbidity, conductivity, water level) can reliably monitor nitrate when combined with GAM + ARIMA models.\nMonitoring can be cheaper and more resilient.\nModels can fill gaps when expensive nitrate sensors fail.\nA single framework can scale across diverse river systems.\nFor water managers, the message is clear: you don’t always need costly nitrate sensors to protect river health."
-  },
-  {
-    "objectID": "posts/welcome/welcome.html#reference",
-    "href": "posts/welcome/welcome.html#reference",
-    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
-    "section": "Reference",
-    "text": "Reference\nKermorvant, C., Abbott, B. W., Chaplin, B., Brinck, S., Cole, L. E. S., Holgerson, M. A., … Bishop, K. (2023). Understanding links between water-quality variables and nitrate concentration in freshwater streams using high frequency sensor data. PLOS ONE, 18(6), e0287640. https://doi.org/10.1371/journal.pone.0287640\nWikimedia Commons. (2021, July 28). Water testing contaminated water from lake [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg"
-  },
-  {
-    "objectID": "welcome.html",
-    "href": "welcome.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "Short intro…"
-  },
-  {
-    "objectID": "home.html",
-    "href": "home.html",
-    "title": "Welcome",
-    "section": "",
-    "text": "This site is part of my ETC5523 Assignment 3.\n\nHere you can find:\n\nAn About page with my profile and links\n\nA Blog that summarises my Assignment 2 project on nitrate monitoring in rivers"
-  },
-  {
     "objectID": "posts/index.html",
     "href": "posts/index.html",
     "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
@@ -179,7 +32,7 @@
     "href": "posts/index.html#analysis",
     "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
     "section": "Analysis",
-    "text": "Analysis\nWe applied a two-step model:\n\nGeneralised Additive Model (GAM) – to capture curved, non-linear relationships.\n\nARIMA time series model – on residuals, to account for daily and seasonal cycles.\n\nThis approach explained about 99% of nitrate variation across all sites.\n\n# Model performance summary\nknitr::kable(\n  data.frame(\n    Site = c(\"Arikaree\", \"Caribou\", \"Lewis Run\"),\n    `GAM only` = c(0.80, 0.75, 0.85),\n    `GAM + ARIMA` = c(0.98, 0.99, 0.99)\n  ),\n  caption = \"Table 1. Model performance by site (proportion of variation explained).\"\n)\n\n\nTable 1. Model performance by site (proportion of variation explained).\n\n\nSite\nGAM.only\nGAM…ARIMA\n\n\n\n\nArikaree\n0.80\n0.98\n\n\nCaribou\n0.75\n0.99\n\n\nLewis Run\n0.85\n0.99\n\n\n\n\n\nAs shown in Table 1, adding ARIMA improved accuracy at all rivers.\nWe also compared the importance of the five cheap sensors.\n\n# Placeholder example, replace with real data if available\nlibrary(ggplot2)\ndf &lt;- data.frame(\n  Site = rep(c(\"Arikaree\",\"Caribou\",\"Lewis Run\"), each=5),\n  Variable = rep(c(\"Conductivity\",\"Oxygen\",\"Temperature\",\"Turbidity\",\"Water Level\"), 3),\n  Importance = runif(15, 5, 20)\n)\nggplot(df, aes(x=Variable, y=Importance, fill=Site)) +\n  geom_col(position=\"dodge\") +\n  theme_minimal()\n\n\n\n\n\n\n\n\nFigure 1 shows that while the same five predictors mattered everywhere, their importance varied:\n\nConductivity was key in Alaska and Virginia.\nTemporal cycles mattered most in Colorado.\n\nThis links directly back to the problem: even though river systems differ, the framework still works."
+    "text": "Analysis\nWe applied a two-step model:\n\nGeneralised Additive Model (GAM) – to capture curved, non-linear relationships.\n\nARIMA time series model – on residuals, to account for daily and seasonal cycles.\n\nThis approach explained about 99% of nitrate variation across all sites.\n\n\n\nTable 1. Model performance by site (proportion of variation explained).\n\n\nSite\nGAM.only\nGAM…ARIMA\n\n\n\n\nArikaree\n0.80\n0.98\n\n\nCaribou\n0.75\n0.99\n\n\nLewis Run\n0.85\n0.99\n\n\n\n\n\nAs shown in Table 1, adding ARIMA improved accuracy at all rivers.\nWe also compared the importance of the five cheap sensors.\n\n\n\n\n\n\n\n\n\nFigure 1 shows that while the same five predictors mattered everywhere, their importance varied:\n\nConductivity was key in Alaska and Virginia.\nTemporal cycles mattered most in Colorado.\n\nThis links directly back to the problem: even though river systems differ, the framework still works."
   },
   {
     "objectID": "posts/index.html#conclusion",
@@ -194,5 +47,12 @@
     "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
     "section": "Reference",
     "text": "Reference\nKermorvant, C., Abbott, B. W., Chaplin, B., Brinck, S., Cole, L. E. S., Holgerson, M. A., … Bishop, K. (2023). Understanding links between water-quality variables and nitrate concentration in freshwater streams using high frequency sensor data. PLOS ONE, 18(6), e0287640. https://doi.org/10.1371/journal.pone.0287640\nWikimedia Commons. (2021, July 28). Water testing contaminated water from lake [Photograph]. Wikimedia Commons. https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg"
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "This site is part of my ETC5523 Assignment 3.\n\nHere you can find:\n\nAn About page with my profile and links\n\nA Blog that summarises my Assignment 2 project on nitrate monitoring in rivers"
   }
 ]

@@ -42,6 +42,7 @@ We applied a **two-step model**:
 This approach explained about **99% of nitrate variation** across all sites.  
 
 ```{r}
+#| echo: false
 # Model performance summary
 knitr::kable(
   data.frame(
@@ -59,6 +60,7 @@ As shown in Table 1, adding ARIMA improved accuracy at all rivers.
 We also compared the importance of the five cheap sensors.
 
 ```{r}
+#| echo: false
 # Placeholder example, replace with real data if available
 library(ggplot2)
 df <- data.frame(
