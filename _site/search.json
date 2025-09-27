@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About Me",
+    "section": "",
+    "text": "I’m currently pursuing my Master of Business Analytics at Monash University in Melbourne. My academic journey began with a Bachelor’s degree in Management at Prasetiya Mulya University, where I developed a strong foundation in business and management.\nProfessionally, I have gained experience in customer service, hospitality, and branding consulting, which allowed me to apply my management background in practical settings. Alongside this, I run a small online business, where I continue to develop my skills in entrepreneurship and digital marketing.\nBeyond my studies, I am passionate about exploring new places, cultures, and perspectives through travel. I also enjoy baking, discovering coffee spots, and sharing insights about education, lifestyle, and living abroad."
+  },
+  {
+    "objectID": "posts/welcome/index.html",
+    "href": "posts/welcome/index.html",
+    "title": "Welcome To My Blog Template",
+    "section": "",
+    "text": "This is the first post in a Quarto blog. Welcome!"
+  }
+]

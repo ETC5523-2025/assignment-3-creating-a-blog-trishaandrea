@@ -1,13 +1,22 @@
 ---
-title: "About"
-image: profile.jpg
+title: "About Me"
+image: images/profile.png
 about:
   template: jolla
   links:
     - icon: github
       text: Github
       href: https://github.com/etc5523-2022
-
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/trishaandrea
+    - icon: envelope
+      text: Email
+      href: mailto:trishaaurielle99@gmail.com
 ---
 
-This is a blog template for the ETC5523 Communicating with Data assessment at Monash University.
+I’m currently pursuing my Master of Business Analytics at Monash University in Melbourne. My academic journey began with a Bachelor’s degree in Management at Prasetiya Mulya University, where I developed a strong foundation in business and management.
+
+Professionally, I have gained experience in customer service, hospitality, and branding consulting, which allowed me to apply my management background in practical settings. Alongside this, I run a small online business, where I continue to develop my skills in entrepreneurship and digital marketing.
+
+Beyond my studies, I am passionate about exploring new places, cultures, and perspectives through travel. I also enjoy baking, discovering coffee spots, and sharing insights about education, lifestyle, and living abroad.
