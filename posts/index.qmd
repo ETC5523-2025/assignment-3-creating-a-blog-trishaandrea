@@ -3,10 +3,11 @@ title: "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?"
 author: "Trisha Aurielle Andrea"
 date: 2025-09-27
 categories: [environment, data-science, water-quality]
+image: images/water.jpg
 page-layout: full
 title-block-banner: true
-listing: true
 ---
+
 ![](water.jpg)
 
 *Thumbnail image source: Wikimedia Commons (2021), ["Water testing contaminated water from lake"](https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg), CC BY-SA 4.0.*
