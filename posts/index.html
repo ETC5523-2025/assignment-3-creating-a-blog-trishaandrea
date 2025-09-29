@@ -211,90 +211,126 @@ window.Quarto = {
 
 <p><img src="water.jpg" class="img-fluid"></p>
 <p><em>Thumbnail image source: Wikimedia Commons (2021), <a href="https://commons.wikimedia.org/wiki/File:Water_testing_contaminated_water_from_lake.jpg">“Water testing contaminated water from lake”</a>, CC BY-SA 4.0.</em></p>
-<section id="why-nitrate-monitoring-matters" class="level2">
-<h2 class="anchored" data-anchor-id="why-nitrate-monitoring-matters">Why Nitrate Monitoring Matters</h2>
-<p>Nitrate is essential for aquatic life, but too much causes algal blooms and oxygen crashes, harming fish and river health.</p>
-<p>Managers usually rely on <strong>expensive nitrate sensors</strong>, which can fail or be too costly to use everywhere. This raises the key question:</p>
-<p><em>Can cheaper, widely available sensors provide reliable nitrate information across different rivers?</em></p>
-</section>
-<section id="the-data" class="level2">
-<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
-<p>We used <strong>two years of high-frequency monitoring data</strong> from three US rivers (Kermorvant et al., 2023):</p>
+<section id="can-cheap-sensors-help-us-monitor-nitrate-in-rivers" class="level1">
+<h1>Can Cheap Sensors Help Us Monitor Nitrate in Rivers?</h1>
+<p>Rivers are the lifeblood of our ecosystems. They supply water for people, agriculture, and industry, and they provide habitats for countless species. But rivers are vulnerable to pollution, and one key culprit is <strong>nitrate</strong>.</p>
+<p>At low levels, nitrate is a natural nutrient. At high levels, it can fuel <strong>algal blooms</strong>, reduce oxygen, and kill fish or other aquatic life. Monitoring nitrate helps managers protect rivers — but there’s a problem.</p>
+<p><strong>Direct nitrate sensors are expensive, prone to failure, and not available everywhere.</strong> This raises an important question:</p>
+<p>👉 <em>Can common, cheaper sensors already used in rivers provide reliable information about nitrate?</em></p>
+<p>This blog explores a study by Kermorvant et al.&nbsp;(2023) that tested this idea using high-frequency data from three very different rivers in the United States.</p>
+<hr>
+<section id="study-sites" class="level2">
+<h2 class="anchored" data-anchor-id="study-sites">Study Sites</h2>
+<p>Researchers collected two years of high-frequency measurements from rivers across three climates:</p>
 <ul>
-<li><strong>Arikaree River (Colorado):</strong> semi-arid, agriculture affected.<br>
+<li><strong>Arikaree River (Colorado)</strong> – A semi-arid river with intermittent flow, heavily influenced by agriculture.<br>
 </li>
-<li><strong>Caribou Creek (Alaska):</strong> subarctic, frozen in winter.<br>
+<li><strong>Caribou Creek (Alaska)</strong> – A subarctic stream underlain by permafrost, where sensors are removed during winter freeze.<br>
 </li>
-<li><strong>Lewis Run (Virginia):</strong> temperate, urban + agricultural mix.</li>
+<li><strong>Lewis Run (Virginia)</strong> – A temperate stream influenced by both agricultural and urban activity.</li>
 </ul>
-<p>The dataset included nitrate (every 15 minutes) plus cheap sensors: <strong>temperature, turbidity, dissolved oxygen, conductivity, and water level</strong>.</p>
-<p>Faulty readings and missing data were removed before modelling. This ensured the analysis reflected only reliable sensor information.</p>
-</section>
-<section id="analysis" class="level2">
-<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
-<p>We applied a <strong>two-step model</strong>:</p>
-<ol type="1">
-<li><strong>Generalised Additive Model (GAM)</strong> – to capture curved, non-linear relationships.<br>
-</li>
-<li><strong>ARIMA time series model</strong> – on residuals, to account for daily and seasonal cycles.</li>
-</ol>
-<p>This approach explained about <strong>99% of nitrate variation</strong> across all sites.</p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<caption>Table 1. Model performance by site (proportion of variation explained).</caption>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Site</th>
-<th style="text-align: right;">GAM.only</th>
-<th style="text-align: right;">GAM…ARIMA</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Arikaree</td>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">0.98</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Caribou</td>
-<td style="text-align: right;">0.75</td>
-<td style="text-align: right;">0.99</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Lewis Run</td>
-<td style="text-align: right;">0.85</td>
-<td style="text-align: right;">0.99</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<p>As shown in Table 1, adding ARIMA improved accuracy at all rivers.</p>
-<p>We also compared the importance of the five cheap sensors.</p>
-<div class="cell">
-<div class="cell-output-display">
-<div>
+<p>These rivers differ dramatically in climate, land use, and flow regimes — making them a tough test for any general monitoring framework.</p>
+<div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="table2.png" class="img-fluid figure-img" alt="Table showing details of the three study sites"></p>
+<figcaption>Sites overview</figcaption>
 </figure>
 </div>
-</div>
-</div>
-<p>Figure 1 shows that while the same five predictors mattered everywhere, their importance varied:</p>
+<p><em>Table 1. Characteristics of the three study sites (adapted from Kermorvant et al., 2023).</em></p>
+<hr>
+</section>
+<section id="methods-a-two-step-modelling-approach" class="level2">
+<h2 class="anchored" data-anchor-id="methods-a-two-step-modelling-approach">Methods: A Two-Step Modelling Approach</h2>
+<p>To answer the question, researchers combined two statistical tools:</p>
+<ol type="1">
+<li><strong>Generalised Additive Model (GAM)</strong>
 <ul>
-<li><p><strong>Conductivity</strong> was key in Alaska and Virginia.</p></li>
-<li><p><strong>Temporal cycles</strong> mattered most in Colorado.</p></li>
+<li>Handles curved, non-linear relationships.<br>
+</li>
+<li>For example, nitrate might increase with temperature up to a point, then level off.</li>
+</ul></li>
+<li><strong>ARIMA (Auto-Regressive Integrated Moving Average)</strong>
+<ul>
+<li>A time-series model that captures cycles and patterns over time.<br>
+</li>
+<li>Accounts for daily (diel) and seasonal changes in rivers.</li>
+</ul></li>
+</ol>
+<p>Together, this two-step model explained <strong>~99% of nitrate variation</strong> across all sites.</p>
+<p>In simple terms:<br>
+- GAMs captured how sensor values relate to nitrate.<br>
+- ARIMA filled in the predictable time-based patterns that the GAM couldn’t.</p>
+<hr>
+</section>
+<section id="results" class="level2">
+<h2 class="anchored" data-anchor-id="results">Results</h2>
+<section id="overall-fit" class="level3">
+<h3 class="anchored" data-anchor-id="overall-fit">Overall fit</h3>
+<ul>
+<li>GAMs alone explained <strong>75–85%</strong> of variation.<br>
+</li>
+<li>Adding ARIMA raised the accuracy to <strong>~99%</strong> at every site.</li>
 </ul>
-<p>This links directly back to the problem: even though river systems differ, the <strong>framework still works.</strong></p>
+</section>
+<section id="variable-importance" class="level3">
+<h3 class="anchored" data-anchor-id="variable-importance">Variable importance</h3>
+<p>The same five <strong>cheap sensors</strong> mattered everywhere:<br>
+- <strong>Conductivity</strong><br>
+- <strong>Dissolved oxygen</strong><br>
+- <strong>Temperature</strong><br>
+- <strong>Turbidity</strong><br>
+- <strong>Water level</strong></p>
+<p>But their importance varied by site:<br>
+- <strong>Caribou (Alaska)</strong> → Conductivity strongest (~10%).<br>
+- <strong>Lewis Run (Virginia)</strong> → Conductivity again most important (&gt;15%).<br>
+- <strong>Arikaree (Colorado)</strong> → No single variable dominated; instead, time cycles mattered most.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="figure4.png" class="img-fluid figure-img" alt="Bar chart showing variable importance across sites"></p>
+<figcaption>Variable importance</figcaption>
+</figure>
+</div>
+<p><em>Figure 1. Relative importance of cheap sensors in explaining nitrate variation (adapted from Kermorvant et al., 2023).</em></p>
+<hr>
+</section>
+</section>
+<section id="why-this-matters-for-managers" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-matters-for-managers">Why This Matters for Managers</h2>
+<p>This study has big practical implications:</p>
+<ul>
+<li>✅ <strong>Cheaper monitoring</strong> → If nitrate sensors fail or are too expensive, managers can rely on common sensors already deployed in rivers.<br>
+</li>
+<li>✅ <strong>Filling gaps</strong> → Models can reconstruct nitrate when data are missing, such as during frozen winters in Alaska.<br>
+</li>
+<li>✅ <strong>Scalable approach</strong> → The same framework worked in three very different rivers, suggesting it can be applied widely.<br>
+</li>
+<li>✅ <strong>Decision support</strong> → Agencies can focus resources on a core set of sensors rather than expensive extras.</li>
+</ul>
+<hr>
+</section>
+<section id="limitations" class="level2">
+<h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
+<p>Of course, no study is perfect.</p>
+<ul>
+<li>⚠ <strong>Not a universal model</strong> → Each site needs its own fitted version; transferability is about the framework, not the coefficients.<br>
+</li>
+<li>⚠ <strong>Data gaps</strong> → Frozen rivers, dry periods, and sensor outages reduce usable data.<br>
+</li>
+<li>⚠ <strong>Computational load</strong> → Large datasets take time to model.<br>
+</li>
+<li>⚠ <strong>Site-specific importance</strong> → While the same variables matter everywhere, their strength differs by site.</li>
+</ul>
+<hr>
 </section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>This study shows that <strong>common sensors</strong> (temperature, oxygen, turbidity, conductivity, water level) can reliably monitor nitrate when combined with GAM + ARIMA models.</p>
-<p>Monitoring can be <strong>cheaper and more resilient.</strong></p>
-<p>Models can <strong>fill gaps</strong> when expensive nitrate sensors fail.</p>
-<p>A <strong>single framework</strong> can scale across diverse river systems.</p>
-<p>For water managers, the message is clear: <strong>you don’t always need costly nitrate sensors to protect river health.</strong></p>
+<p>A simple two-step model using <strong>cheap sensor data</strong> can explain nearly all nitrate variation across rivers in very different climates.</p>
+<p>The key message is clear: <strong>with the right models, managers don’t always need expensive nitrate sensors to keep rivers healthy.</strong></p>
+<p>This makes monitoring:<br>
+- <strong>Cheaper</strong><br>
+- <strong>More reliable</strong><br>
+- <strong>More adaptable</strong></p>
+<p>And most importantly, it helps protect ecosystems that depend on clean, well-monitored water.</p>
 </section>
 <section id="reference" class="level2">
 <h2 class="anchored" data-anchor-id="reference">Reference</h2>
@@ -303,6 +339,7 @@ window.Quarto = {
 
 
 
+</section>
 </section>
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
