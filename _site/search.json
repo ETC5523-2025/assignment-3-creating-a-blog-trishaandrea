@@ -39,7 +39,7 @@
     "href": "posts/index.html#conclusion",
     "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
     "section": "Conclusion",
-    "text": "Conclusion\nThis study shows that common sensors (temperature, oxygen, turbidity, conductivity, water level) can reliably monitor nitrate when combined with GAM + ARIMA models.\nMonitoring can be cheaper and more resilient.\nModels can fill gaps when expensive nitrate sensors fail.\nA single framework can scale across diverse river systems.\nFor water managers, the message is clear: you don’t always need costly nitrate sensors to protect river health."
+    "text": "Conclusion\nA simple two-step model using cheap sensor data can explain nearly all nitrate variation across rivers in very different climates.\nThe key message is clear: with the right models, managers don’t always need expensive nitrate sensors to keep rivers healthy.\nThis makes monitoring:\n- Cheaper\n- More reliable\n- More adaptable\nAnd most importantly, it helps protect ecosystems that depend on clean, well-monitored water."
   },
   {
     "objectID": "posts/index.html#reference",
@@ -54,5 +54,40 @@
     "title": "Welcome",
     "section": "",
     "text": "This site is part of my ETC5523 Assignment 3.\n\nHere you can find:\n\nAn About page with my profile and links\n\nA Blog that summarises my Assignment 2 project on nitrate monitoring in rivers"
+  },
+  {
+    "objectID": "posts/index.html#study-sites",
+    "href": "posts/index.html#study-sites",
+    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
+    "section": "Study Sites",
+    "text": "Study Sites\nResearchers collected two years of high-frequency measurements from rivers across three climates:\n\nArikaree River (Colorado) – A semi-arid river with intermittent flow, heavily influenced by agriculture.\n\nCaribou Creek (Alaska) – A subarctic stream underlain by permafrost, where sensors are removed during winter freeze.\n\nLewis Run (Virginia) – A temperate stream influenced by both agricultural and urban activity.\n\nThese rivers differ dramatically in climate, land use, and flow regimes — making them a tough test for any general monitoring framework.\n\n\n\nSites overview\n\n\nTable 1. Characteristics of the three study sites (adapted from Kermorvant et al., 2023)."
+  },
+  {
+    "objectID": "posts/index.html#methods-a-two-step-modelling-approach",
+    "href": "posts/index.html#methods-a-two-step-modelling-approach",
+    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
+    "section": "Methods: A Two-Step Modelling Approach",
+    "text": "Methods: A Two-Step Modelling Approach\nTo answer the question, researchers combined two statistical tools:\n\nGeneralised Additive Model (GAM)\n\nHandles curved, non-linear relationships.\n\nFor example, nitrate might increase with temperature up to a point, then level off.\n\nARIMA (Auto-Regressive Integrated Moving Average)\n\nA time-series model that captures cycles and patterns over time.\n\nAccounts for daily (diel) and seasonal changes in rivers.\n\n\nTogether, this two-step model explained ~99% of nitrate variation across all sites.\nIn simple terms:\n- GAMs captured how sensor values relate to nitrate.\n- ARIMA filled in the predictable time-based patterns that the GAM couldn’t."
+  },
+  {
+    "objectID": "posts/index.html#results",
+    "href": "posts/index.html#results",
+    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
+    "section": "Results",
+    "text": "Results\n\nOverall fit\n\nGAMs alone explained 75–85% of variation.\n\nAdding ARIMA raised the accuracy to ~99% at every site.\n\n\n\nVariable importance\nThe same five cheap sensors mattered everywhere:\n- Conductivity\n- Dissolved oxygen\n- Temperature\n- Turbidity\n- Water level\nBut their importance varied by site:\n- Caribou (Alaska) → Conductivity strongest (~10%).\n- Lewis Run (Virginia) → Conductivity again most important (&gt;15%).\n- Arikaree (Colorado) → No single variable dominated; instead, time cycles mattered most.\n\n\n\nVariable importance\n\n\nFigure 1. Relative importance of cheap sensors in explaining nitrate variation (adapted from Kermorvant et al., 2023)."
+  },
+  {
+    "objectID": "posts/index.html#why-this-matters-for-managers",
+    "href": "posts/index.html#why-this-matters-for-managers",
+    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
+    "section": "Why This Matters for Managers",
+    "text": "Why This Matters for Managers\nThis study has big practical implications:\n\n✅ Cheaper monitoring → If nitrate sensors fail or are too expensive, managers can rely on common sensors already deployed in rivers.\n\n✅ Filling gaps → Models can reconstruct nitrate when data are missing, such as during frozen winters in Alaska.\n\n✅ Scalable approach → The same framework worked in three very different rivers, suggesting it can be applied widely.\n\n✅ Decision support → Agencies can focus resources on a core set of sensors rather than expensive extras."
+  },
+  {
+    "objectID": "posts/index.html#limitations",
+    "href": "posts/index.html#limitations",
+    "title": "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?",
+    "section": "Limitations",
+    "text": "Limitations\nOf course, no study is perfect.\n\n⚠ Not a universal model → Each site needs its own fitted version; transferability is about the framework, not the coefficients.\n\n⚠ Data gaps → Frozen rivers, dry periods, and sensor outages reduce usable data.\n\n⚠ Computational load → Large datasets take time to model.\n\n⚠ Site-specific importance → While the same variables matter everywhere, their strength differs by site."
   }
 ]
