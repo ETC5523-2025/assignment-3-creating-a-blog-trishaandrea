@@ -1,6 +1,6 @@
 project:
   type: website
-
+  output-dir: docs
 website:
   title: "Can Cheap Sensors Help Us Monitor Nitrate in Rivers?"
   navbar:
