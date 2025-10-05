@@ -1,0 +1,24 @@
+/* Grey and white theme (does not affect images/plots) */
+
+/* Background + text */
+body {
+  background-color: #ffffff;  /* white */
+  color: #333333;             /* dark grey text */
+}
+
+/* Navbar + title banner in medium grey */
+.navbar, .quarto-title-banner {
+  background-color: #666666 !important; /* medium grey */
+  color: #ffffff !important;           /* white text */
+}
+
+/* Headings in darker grey */
+h1, h2, h3, h4, h5, h6 {
+  color: #222222;
+}
+
+/* Links in dark grey with underline for visibility */
+a {
+  color: #444444 !important;
+  text-decoration: underline;
+}
